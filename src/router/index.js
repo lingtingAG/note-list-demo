@@ -14,6 +14,11 @@ const router = createRouter({
       name: "list",
       component: () => import("../views/ListView/index.vue"),
     },
+    {
+      path: "/editor",
+      name: "editor",
+      component: () => import("../views/EditorView/index.vue"),
+    },
   ],
 });
 

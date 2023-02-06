@@ -2,11 +2,13 @@
   <div class="container">
     <div class="content">
       <div class="poster">
-        <img alt="" />
+        <img :src="props.value.poster" alt="" />
       </div>
       <div class="mask">
-        <div class="name"></div>
-        <div class="tags">111</div>
+        <div class="name">{{ props.value.name }}</div>
+        <div class="tags">
+          <el-tag v-for="tags in props.value.tags" type="info">{{ tags }}</el-tag>
+        </div>
         <el-button type="primary">使用该模版</el-button>
       </div>
     </div>
@@ -14,7 +16,9 @@
 </template>
 
 <script setup lang='ts'>
-
+const props = defineProps({
+  value: Object || String
+})
 </script>
 
 <style scoped lang='less'>
@@ -54,7 +58,11 @@
       >*+* {
         margin-top: 12px;
       }
-
+      :deep(.el-tag){
+        margin-right: 10px;
+        color: #000;
+        border:1px solid #ddd;
+      }
       .name {
         font-size: 16px;
       }

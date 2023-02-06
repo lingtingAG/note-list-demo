@@ -26,8 +26,8 @@
         <div class="editor-main">
           <div class="editor-main-title">简历模版</div>
           <div class="editor-main-template">
-            <div v-for="item in test" class="editor-main-card">
-                <TemplateCard />
+            <div v-for="item in templates" class="editor-main-card" key="item.key">
+                <TemplateCard :value="item"/>
             </div>
           </div>
           <div class="editor-tip">更多模版尽情期待...</div>
@@ -40,6 +40,7 @@
 
 <script setup lang="ts">
 import TemplateCard from "@/components/templateCard/index.vue";
+import { templates } from '@/templates';
 const test = ["a", "b", "c", "d"];
 </script>
 
